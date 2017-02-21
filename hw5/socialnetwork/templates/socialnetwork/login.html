@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/static/socialnetwork/login.css">
+    <link href="/static/socialnetwork/css/bootstrap.min.css" rel="stylesheet">
+    <title>Social Network -- Login</title>
+</head>
+
+<body>
+    
+    {% if form.errors %}
+        <p style="color:red">
+            Incorrect user name and password.
+        </p>
+    {% endif %}
+    
+    <div class="container">
+        <form class="form-login" method="POST" action="{% url 'login' %}">
+            <h2 class="form-login-heading">Please log in.</h2>
+            <!--<table>
+            <tr>
+                <td>{{ form.username.label_tag }}</td>
+                <td>{{ form.username }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.password.label_tag }}</td>
+                <td>{{ form.password }}</td>
+            </tr>
+            </table>-->
+            <table class="table">
+            <tr>
+                <label for="inputUsername" class="sr-only">Username</label>
+                <input type="text" id="inputUsername" name="username" class="form-control" placeholder=Username required="" autofocus="">
+            </tr>
+            <tr>
+                <label for="inputPassword" class="sr-only">Password</label>
+                <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required="">
+            </tr>
+            </table>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-7">
+                        <button type="submit" class="btn btn-primary btn-block">Log in</button>
+                    </div>
+                    <div class="col-sm-5">
+                        <a href="/socialnetwork/register"><input type="button" class="btn btn-default btn-block" value="Register"/></a>
+                    </div>
+                </div>
+            </div>
+            
+            <input type="hidden" name="next" value="{{ next }}" />
+            {% csrf_token %}
+        </form>
+    </div>
+</body>
+</html>
+

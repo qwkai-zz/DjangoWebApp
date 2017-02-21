@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/static/socialnetwork/login.css">
+    <link href="/static/socialnetwork/css/bootstrap.min.css" rel="stylesheet">
+
+    <title>Social Network -- Register</title>
+</head>
+
+<body>
+    <a href="/socialnetwork/"><div class="page-header"><h1>Social Network</h1></div></a>
+
+    {% for error in errors %}
+        <p style="color: red">
+            {{ error }}
+        </p>
+    {% endfor %}
+
+    
+    <div class="container">
+        <form class="form-login" method="post" action="/socialnetwork/register">
+        <h2 class="form-login-heading">Please register.</h2>
+            <table class="table">
+                {{form}}
+            </table>
+            
+            <input type="submit" class="btn btn-primary btn-block" value="Register" />
+            {% csrf_token %}
+        </form>
+    </div>
+
+
+</body>
+</html>
+

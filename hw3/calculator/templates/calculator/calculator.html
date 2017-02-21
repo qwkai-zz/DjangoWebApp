@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Irene's Calculator</title>
+  <meta	charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="static/calculator/calculator.css">
+</head>
+<body>
+
+
+<table class="calc_table">
+  <tr>
+    {%if result != None%}
+    <td colspan="4"><input type="text" id="result" name="result" value="{{result}}" disabled></td>
+    {%else%}
+    <td colspan="4"><input type="text" id="result" name="result" value="0" disabled></td>
+    {%endif%}
+  </tr>
+  
+  <form method="POST">
+  {%csrf_token%}
+  {%if newValue != None%}
+  <input type="hidden" name="newValue" value="{{newValue}}">
+  {%endif%}
+  {%if preValue != None%}
+  <input type="hidden" name="preValue" value="{{preValue}}">
+  {%endif%}
+  {%if preOp != None%}
+  <input type="hidden" name="preOp" value="{{preOp}}">
+  {%endif%}
+  {%if lastClickIsDigit != None%}
+  <input type="hidden" name="lastClickIsDigit" value="{{lastClickIsDigit}}">
+  {%endif%}
+  <tr>
+    <td><button type="submit" class="digit_button" name="number" value="7">7</button></td>
+    <td><button type="submit" class="digit_button" name="number" value="8">8</button></td>
+    <td><button type="submit" class="digit_button" name="number" value="9">9</button></td>
+    <td><button type="submit" class="op_button" name="op" value="+">&plus;</button></td>
+  </tr>
+
+  <tr>
+    <td><button type="submit" class="digit_button" name="number" value="4">4</button></td>
+    <td><button type="submit" class="digit_button" name="number" value="5">5</button></td>
+    <td><button type="submit" class="digit_button" name="number" value="6">6</button></td>
+    <td><button type="submit" class="op_button" name="op" value="-">&minus;</button></td>
+  </tr>
+
+  <tr>
+    <td><button type="submit" class="digit_button" name="number" value="1">1</button></td>
+    <td><button type="submit" class="digit_button" name="number" value="2">2</button></td>
+    <td><button type="submit" class="digit_button" name="number" value="3">3</button></td>
+    <td><button type="submit" class="op_button" name="op" value="*">&times;</button></td>
+  </tr>
+
+  <tr>
+    <td></td>
+    <td><button type="submit" class="digit_button" name="number" value="0">0</button></td>
+    <td><button type="submit" class="op_button" name="op" value="=">&equals;</button></td>
+    <td><button type="submit" class="op_button" name="op" value="/">&divide;</button></td>
+  </tr>
+  </form>
+
+</table>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Irene's Calculator</title>
+  <meta	charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="css/calculator.css">
+  <script src="js/calculator.js"></script>
+</head>
+<body>
+
+<table class="calc_table">
+  <tr>
+    <td colspan="4"><input type="text" id="result" value="0" disabled></td>
+  </tr>
+  <tr>
+    <td><button type="button" class="digit_button" value="7" onclick="clickDigit(this.value)">7</button></td>
+    <td><button type="button" class="digit_button" value="8" onclick="clickDigit(this.value)">8</button></td>
+    <td><button type="button" class="digit_button" value="9" onclick="clickDigit(this.value)">9</button></td>
+    <td><button type="button" class="op_button" value="+" onclick="clickOp(this.value)">&plus;</button></td>
+  </tr>
+
+  <tr>
+    <td><button type="button" class="digit_button" value="4" onclick="clickDigit(this.value)">4</button></td>
+    <td><button type="button" class="digit_button" value="5" onclick="clickDigit(this.value)">5</button></td>
+    <td><button type="button" class="digit_button" value="6" onclick="clickDigit(this.value)">6</button></td>
+    <td><button type="button" class="op_button" value="-" onclick="clickOp(this.value)">&minus;</button></td>
+  </tr>
+
+  <tr>
+    <td><button type="button" class="digit_button" value="1" onclick="clickDigit(this.value)">1</button></td>
+    <td><button type="button" class="digit_button" value="2" onclick="clickDigit(this.value)">2</button></td>
+    <td><button type="button" class="digit_button" value="3" onclick="clickDigit(this.value)">3</button></td>
+    <td><button type="button" class="op_button" value="*" onclick="clickOp(this.value)">&times;</button></td>
+  </tr>
+
+  <tr>
+    <td></td>
+    <td><button type="button" class="digit_button" value="0" onclick="clickDigit(this.value)">0</button></td>
+    <td><button type="button" class="op_button" value="=" onclick="clickOp(this.value)">&equals;</button></td>
+    <td><button type="button" class="op_button" value="/" onclick="clickOp(this.value)">&divide;</button></td>
+  </tr>
+
+</table>
+</body>
+</html>

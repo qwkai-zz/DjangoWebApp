@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/static/socialnetwork/socialnetwork.css">
+    <link href="/static/socialnetwork/css/bootstrap.min.css" rel="stylesheet">
+    <title>Social Network</title>
+</head>
+
+<body>
+
+<a href="/socialnetwork/"><div class="page-header"><h1>Social Network</h1></div></a>
+
+{% for error in errors %}
+    <div class="error">
+        {{error}}
+    </div>
+{% endfor %}
+
+    <form class="add-form" action="/socialnetwork/add-post" method="POST">
+
+        <div class="col-lg-6 col-lg-offset-2">
+            <div class="input-group">
+            <span class="input-group-btn">
+                <input class="btn btn-default" type="submit" value="Add Post"/>
+            </span>
+            <input type="text" class="form-control" placeholder="Write a post" name="post" autofocus>
+            </div><!-- /input-group -->
+        </div><!-- /.col-lg-6 -->
+        
+        {% csrf_token %}
+    </form>
+
+    <h2>Global Stream</h2>
+    <ul>
+        {% for post in posts %}
+            <li>
+                <!--<form class="delete-form"
+                    action="/socialnetwork/delete-post/{{post.id}}"
+                    method="POST">
+                    <input type="submit" value="X">
+                    {% csrf_token %}
+                </form>-->
+                <a href="/socialnetwork/profile/{{post.user}}"><span>{{post.user}}:</span></a>
+                {{post.text}}
+                <span class="details">
+                    (id={{post.id}},
+                    user={{post.user}},
+                    create_time={{post.create_time}})
+                </span>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <div class="col-sm-2">
+        <a href="/socialnetwork/logout"><input type="button" class="btn btn-default btn-block" value="Log out"/></a>
+    </div>
+</body>
+</html>

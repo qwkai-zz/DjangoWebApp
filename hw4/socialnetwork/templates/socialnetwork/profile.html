@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/static/socialnetwork/socialnetwork.css">
+    <link href="/static/socialnetwork/css/bootstrap.min.css" rel="stylesheet">
+    <title>{{username}}'s Profile</title>
+</head>
+
+<body>
+    <div class="page-header"><a href="/socialnetwork/"><h1>Social Network</h1></a></div>
+    <h1><small>{{username}}' Profile</small></h1>
+    {% for error in errors %}
+        <div class="error">
+            {{error}}
+        </div>
+    {% endfor %}
+
+
+    <div>First name:{{first_name}}, Last name:{{last_name}}</div>
+    <ul>
+        {% for post in posts %}
+            {% if post.user.username == username%}
+            <li>
+                <!--<form class="delete-form"
+                    action="/socialnetwork/delete-post/{{post.id}}"
+                    method="POST">
+                    <input type="submit" value="X">
+                    {% csrf_token %}
+                </form>-->
+                {{post.text}}
+                <span class="details">
+                    (id={{post.id}},
+                    user={{post.user}},
+                    create_time={{post.create_time}})
+                </span>
+            </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+
+    <div class="col-sm-2">
+        <a href="/socialnetwork/logout"><input type="button" class="btn btn-default btn-block" value="Log out"/></a>
+    </div>
+
+</body>
+</html>

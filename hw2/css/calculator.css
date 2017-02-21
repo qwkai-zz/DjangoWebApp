@@ -1,0 +1,51 @@
+.calc_table{
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.digit_button{
+  background-color: rgb(227, 239, 199);
+  height:60px;
+  width:100px;;
+  text-align: center;
+  font-size: 24px;
+  font-family:monospace;
+  border: 3px solid rgb(184, 221, 96);
+  border-radius: 8px;
+  transition-duration: 0.2s;
+  padding: 10px;
+}
+
+.digit_button:hover{
+  background-color: rgb(184, 221, 96);
+  color:white;
+}
+
+.op_button{
+  background-color: rgb(181, 209, 159);
+  height:60px;
+  width:100px;
+  text-align: center;
+  font-size: 24px;
+  font-family:monospace;
+  border: 3px solid rgb(137, 177, 108);
+  border-radius: 8px;
+  transition-duration: 0.2s;
+}
+
+.op_button:hover{
+  background-color: rgb(137, 177, 108);
+  color:white;
+}
+
+#result{
+  background-color: rgb(175,211,217);
+  width: 405px;
+  height:60px;
+  font-size: 42px;
+  font-family: monospace;
+  text-align: right;
+  margin-bottom: 20px;
+  border: 3px solid #c2c7ca;
+  border-radius: 3px;
+}
